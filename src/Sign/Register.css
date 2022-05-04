@@ -1,0 +1,9 @@
+.App{
+    margin: 0 0 3% 35%;
+}
+.App-header{
+    align-items: center;
+}
+input{
+    margin: 8px;
+}

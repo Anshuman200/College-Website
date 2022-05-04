@@ -1,0 +1,54 @@
+
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const [submitted , setSubmitted] = useState(false);
+  const [error, setError] = useState(false);
+
+  // Handling Name
+  const handleName = (e) => {
+    setName(e.target.value);
+    setSubmitted(false);
+  };
+
+  // Handling Email
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+    setSubmitted(false);
+  };
+
+  // Handling Password
+  const handlePassword = (e) => {
+    setPassword(e.target.value);
+    setSubmitted(false);
+  };
+
+  // Handling Form Submission
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (name === '' || email === '' || password === ''){
+      setError(true);
+    }else{
+      setSubmitted(true);
+      setError(false);
+    }
+  };
+
+  // Success Message
+  const successMessage = () => {
+    return (
+      <Box className={classes.success} style={{display: submitted ? '' : 'none',}}>
+        <Typography>User {name} successfully registered !!!</Typography>
+      </Box>
+    );
+  };
+
+  // If Error Occurs
+  const errorMessage = () => {
+    return (
+      <Box className={classes.error} style={{display: error ? '' : 'none',}}>
+        <Typography>Please Enter All the Mendatory Fields</Typography>
+      </Box>
+    );
+  };
